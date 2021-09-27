@@ -21,61 +21,29 @@ export default async function handler(req, res) {
       let json = '';
       let url = BASE_URL + last_thursday + '/' + sign + '-' + every_thursday + '-' + every_next_wednesday + '-' + month_string + '-' + year;
       res.setHeader('content-type', 'application/json');
+      
      
       request(url, async function (error, response, body) {
+        var $ = await cheerio.load(body);
+        var prediction = $('div.item_text > p').text();
+        console.log(prediction);
+        var json = {
+            sign: sign,
+            text: prediction,
+            start_date: every_thursday + ' ' + month_string + ' ' + year,
+            end_date: every_next_wednesday + ' ' + month_string + ' ' + year,
+        };
 
-        // Magic happens here
-        if ( sign != null || sign == '') {
-            var $ = await cheerio.load(body);
-            var prediction = $('div.item_text > p').text();
-            console.log(prediction);
-            console.log($);
-            if (prediction == '') {
-                if (sign == ''){
-                    sign = 'null'
-                }
-                var json_error = {
-                    sign: sign,
-                    text: ' No messages from stars for '+sign,
-                    error_code : ' 404 ',
-                    error_desc : ' Sign not found '
-                }
-                
-                json_error = JSON.stringify(json_error, null, 4);
-                json = json_error;
-               
-                
-
-            } else {
-                
-                var json = {
-                    sign: sign,
-                    text: prediction,
-                    start_date: every_thursday + ' ' + month_string + ' ' + year,
-                    end_date: every_next_wednesday + ' ' + month_string + ' ' + year,
-                };
-
-                // Send the JSON as a response to the client
-                
-                json = JSON.stringify(json, null, 4);
-                // Send the JSON as a response to the client
-                res.statusCode = 200;
-                
-                
-
-                
-            }
-        }else{
-          res.statusCode =200;
-          json = 'Welcome to endpoint, to get started just add parameters to GET request.';
-        }
-        return res.send(json);
+        // Send the JSON as a response to the client
+        
+        json = JSON.stringify(json, null, 4);
+        res.send(json);
         res.statusCode = 200;
         res.end();
-      
-
-       
-    });
+       });
+    
+  
+    
 }
 
 
