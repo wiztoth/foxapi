@@ -15,18 +15,18 @@ const BASE_URL = 'https://www.internazionale.it/oroscopo/';
 
 
 
-export default function handler(req, res) {
+export default async function handler(req, res) {
       // The scraping magic will happen here
       let sign = req.query.sign;
       let json = '';
       let url = BASE_URL + last_thursday + '/' + sign + '-' + every_thursday + '-' + every_next_wednesday + '-' + month_string + '-' + year;
       res.setHeader('content-type', 'application/json');
      
-      request(url, function (error, response, body) {
+      request(url, async function (error, response, body) {
 
         // Magic happens here
         if ( sign != null || sign == '') {
-            var $ = cheerio.load(body);
+            var $ = await cheerio.load(body);
             var prediction = $('div.item_text > p').text();
             console.log(prediction);
             console.log($);
