@@ -40,7 +40,10 @@ export default function handler(req, res) {
                 }
                 
                 json_error = JSON.stringify(json_error, null, 4);
-                res.send(json_error);
+                res.statusCode = 404;
+                return res.send(json_error);
+                res.end();
+
             } else {
                 
                 var json = {
@@ -54,7 +57,11 @@ export default function handler(req, res) {
                 
                 json = JSON.stringify(json, null, 4);
                 // Send the JSON as a response to the client
-                res.send(json);
+                res.statusCode = 200;
+                return res.send(json);
+                res.end();
+
+                
             }
         }
         res.send('Welcome to rest API endpoint, to getting start read documentation.')
