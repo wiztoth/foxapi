@@ -28,6 +28,8 @@ export default function handler(req, res) {
         if ( sign != null || sign == '') {
             var $ = cheerio.load(body);
             var prediction = $('div.item_text > p').text();
+            console.log(prediction);
+            console.log($);
             if (prediction == '') {
                 if (sign == ''){
                     sign = 'null'
@@ -41,7 +43,7 @@ export default function handler(req, res) {
                 
                 json_error = JSON.stringify(json_error, null, 4);
                 json = json_error;
-                res.statusCode = 404;
+               
                 
 
             } else {
@@ -68,7 +70,7 @@ export default function handler(req, res) {
           json = 'Welcome to endpoint, to get started just add parameters to GET request.';
         }
         return res.send(json);
-        
+        res.statusCode = 200;
         res.end();
       
 
