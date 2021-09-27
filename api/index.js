@@ -6,4 +6,14 @@ app.all('/getJSON', (req, res) => {
   res.json({ data: 'data' })
 })
 
-module.exports = app
+
+module.exports = {
+    path: '/api',
+    handler: app
+}
+
+
+
+
+
+
