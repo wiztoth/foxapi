@@ -23,7 +23,7 @@ export default async function handler(req, res) {
       res.setHeader('content-type', 'application/json');
       
      
-      request(url, async function (error, response, body) {
+      var r = request(url, async function (error, response, body) {
         var $ = await cheerio.load(body);
         var prediction = $('div.item_text > p').text();
         console.log(prediction);
@@ -41,6 +41,8 @@ export default async function handler(req, res) {
         res.statusCode = 200;
         res.end();
        });
+
+       console.log(r);
     
   
     
