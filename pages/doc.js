@@ -13,9 +13,9 @@ function Doc() {
     
           <main className={styles.main}>
             
-            <h2 className={styles.title}>
-                wizapi - API for reading stars &#10024;
-            </h2>
+                <h1 className={styles.title}> wizapi    </h1>
+<br />
+          <h1 className={styles.title}>  API for reading stars &#10024;    </h1>
             
         
     
