@@ -86,8 +86,9 @@ export default async function handler(req, res) {
           res.statusCode = 200;
         } else {
           json = {
+            astrologer: astrologer,
             sign: sign,
-            prediction: 'No messages from stars for ' + sign,
+            prediction: 'No messages from stars for ' + sign+ ' from '+astrologer,
             error_code: 404,
             end_date: sign + ' not found ',
   
@@ -121,8 +122,9 @@ export default async function handler(req, res) {
           res.statusCode = 200;
         }else{
           json = {
+            astrologer: astrologer,
             sign: sign,
-            prediction: 'No messages from stars for ' + sign,
+            prediction: 'No messages from stars for ' + sign+ ' from '+astrologer,
             error_code: 404,
             end_date: sign + ' not found ',
   
@@ -131,7 +133,15 @@ export default async function handler(req, res) {
           res.statusCode = 404;
         }
       }else{
-        //astrologer not found error
+        var json = {
+        astrologer: astrologer,
+        sign: sign,
+        prediction: 'I am '+astrologer+' , not Paolo or Rob, i can not read stars',
+        error_code: 404,
+        end_date: astrologer + ' is not a valid astrologer, retry with fox or brezsny ',
+        }
+        res.send(JSON.stringify(json, null, 4));
+          res.statusCode = 404;
       }
     }
     
