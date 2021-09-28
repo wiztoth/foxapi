@@ -18,8 +18,12 @@ export default async function handler(req, res) {
   var result = $("p").text();
   console.log("risultato è"+result);
  
+  var json = {
+    result: result,
+    url : url,
+  }
   
-  res.send(result);
+  res.send(json);
 
     
  
