@@ -14,7 +14,7 @@ export default function Home() {
       <main className={styles.main}>
         
         <h1 className={styles.title}>
-          wizoscopo API &#10024;
+          wizapi &#10024;
         </h1>
 
        
