@@ -19,7 +19,7 @@ function Doc() {
          
     
             <div className={styles.grid}>
-            <h1 className={styles.title2}> FOXAPI  -  Usage Reference 📝   </h1><br/>
+            <a href="https://foxapi.vercel.app"><h1 className={styles.title2}> FOXAPI  -  Usage Reference 📝   </h1><br/></a>
 
 <h3 className={styles.title2}>     </h3>
   
