@@ -1,8 +1,8 @@
 const cheerio = require('cheerio');
 const moment = require('moment');
-var start_date = moment().day(-3).local('it').format('YYYY/MM/DD');
-var first_day_week = moment().day(-3).local('it').format('DD');
-var end_date = moment().day(+3).lang('it').local('DD-MMMM-YYYY');
+var start_date = moment().day(-3).locale('it').format('YYYY/MM/DD');
+var first_day_week = moment().day(-3).locale('it').format('DD');
+var end_date = moment().day(+3).locale('it').format('DD-MMMM-YYYY');
 
 export default async function handler(req, res) {
 
