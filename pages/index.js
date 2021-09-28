@@ -13,9 +13,10 @@ export default function Home() {
 
       <main className={styles.main}>
         
-        <h1 className={styles.title}>
-          wizapi - API for reading stars &#10024;
-        </h1>
+        <h1 className={styles.title}> wizapi    </h1>
+<br />
+          <h1 className={styles.title}>  API for reading stars &#10024;    </h1>
+
 
        
 
