@@ -34,11 +34,13 @@ export default async function handler(req, res) {
         var prediction = $("div.item_text > p").html();
         if (title != 'Pagina non trovata') {
           json = {
+            astrologer: astrologer,
             sign: sign,
             prediction: " "+prediction+" ",
             start_date: display_start_date,
             end_date: display_end_date,
-  
+            horoscope: 'weekly',
+
           }
           res.setHeader('content-type', 'application/json;charset=UTF-8');
           res.send(JSON.stringify(json, null, 4));
@@ -76,6 +78,7 @@ export default async function handler(req, res) {
             prediction: " "+prediction+" ",
             start_date: display_start_date,
             end_date: display_end_date,
+            horoscope: 'weekly',
   
           }
           res.setHeader('content-type', 'application/json;charset=UTF-8');
@@ -109,6 +112,7 @@ export default async function handler(req, res) {
             sign: sign,
             prediction: " "+prediction+" ",
             today: moment().locale('it').format('DD MMMM YYYY'),
+            horoscope: 'daily'
             
   
           }
