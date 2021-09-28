@@ -15,90 +15,136 @@ var display_end_date = moment().day(+3).locale('it').format('DD MMMM YYYY');
 
 export default async function handler(req, res) {
   var sign = req.query.sign;
+  var astrologer = req.query.astrologer;
   var json = {};
-  if (sign != null) {
+  if (sign != null & astrologer != null) {
     // check if month it's the same, if not url to get messages change a little bit and month_variation it's needed.
-    if (start_month == end_month) {
+    
+    if(astrologer == 'brezsny'){
+      if (start_month == end_month) {
      
-      const url = 'https://www.internazionale.it/oroscopo/' + start_date + '/' + sign + '-' + first_day_week + '-' + end_date;
-
-      const request = await fetch(url);
-     
-      var body = await request.text();
-      const $ = cheerio.load(body,{ decodeEntities: true });
-      var title = $("h2.hentry__title").text();
-     
-      var prediction = $("div.item_text > p").html();
-      if (title != 'Pagina non trovata') {
-        json = {
-          sign: sign,
-          prediction: " "+prediction+" ",
-          start_date: display_start_date,
-          end_date: display_end_date,
-
+        const url = 'https://www.internazionale.it/oroscopo/' + start_date + '/' + sign + '-' + first_day_week + '-' + end_date;
+  
+        const request = await fetch(url);
+       
+        var body = await request.text();
+        const $ = cheerio.load(body,{ decodeEntities: true });
+        var title = $("h2.hentry__title").text();
+       
+        var prediction = $("div.item_text > p").html();
+        if (title != 'Pagina non trovata') {
+          json = {
+            sign: sign,
+            prediction: " "+prediction+" ",
+            start_date: display_start_date,
+            end_date: display_end_date,
+  
+          }
+          res.setHeader('content-type', 'application/json;charset=UTF-8');
+          res.send(JSON.stringify(json, null, 4));
+          res.statusCode = 200;
+        } else {
+          if( sign == ''){
+            sign = 'null';
+          }
+          json = {
+            sign: sign,
+            prediction: 'No messages from stars for ' + sign,
+            error_code: 404,
+            end_date: sign + ' not found ',
+  
+          }
+          res.send(JSON.stringify(json, null, 4));
+          res.statusCode = 404;
         }
-        res.setHeader('content-type', 'application/json;charset=UTF-8');
-        res.send(JSON.stringify(json, null, 4));
-        res.statusCode = 200;
       } else {
-        if( sign == ''){
-          sign = 'null';
+        var month_variation = end_month;
+        const url = 'https://www.internazionale.it/oroscopo/' + start_date + '/' + sign + '-' + first_day_week + '-' + month_variation + '-' + end_date;
+  
+        const request = await fetch(url);
+        
+        var body = await request.text();
+        const $ = cheerio.load(body,{ decodeEntities: true });
+        var title = $("title").text();
+        
+        var prediction = $("div.item_text > p").text();
+       
+        if (title != 'Pagina non trovata') {
+          json = {
+            sign: sign,
+            astrologer: astrologer,
+            prediction: " "+prediction+" ",
+            start_date: display_start_date,
+            end_date: display_end_date,
+  
+          }
+          res.setHeader('content-type', 'application/json;charset=UTF-8');
+          res.send(JSON.stringify(json, null, 4));
+          res.statusCode = 200;
+        } else {
+          json = {
+            sign: sign,
+            prediction: 'No messages from stars for ' + sign,
+            error_code: 404,
+            end_date: sign + ' not found ',
+  
+          }
+          res.send(JSON.stringify(json, null, 4));
+          res.statusCode = 404;
         }
-        json = {
-          sign: sign,
-          prediction: 'No messages from stars for ' + sign,
-          error_code: 404,
-          end_date: sign + ' not found ',
-
-        }
-        res.send(JSON.stringify(json, null, 4));
-        res.statusCode = 404;
       }
-    } else {
-      var month_variation = end_month;
-      const url = 'https://www.internazionale.it/oroscopo/' + start_date + '/' + sign + '-' + first_day_week + '-' + month_variation + '-' + end_date;
+    }else{
+      if( astrologer == 'fox'){
+        const url = getFoxUrl(sign);
+        console.log(url);
+        const request = await fetch(url);
+        
+        var body = await request.text();
+        const $ = cheerio.load(body,{ decodeEntities: true });
+        var title = $("title").text();
+        console.log(title);
 
-      const request = await fetch(url);
-      
-      var body = await request.text();
-      const $ = cheerio.load(body,{ decodeEntities: true });
-      var title = $("title").text();
-      
-      var prediction = $("div.item_text > p").text();
-     
-      if (title != 'Pagina non trovata') {
-        json = {
-          sign: sign,
-          prediction: " "+prediction+" ",
-          start_date: display_start_date,
-          end_date: display_end_date,
-
+        var prediction = $("p").text();
+        if( title != 'Pagina non trovata - ZON'){
+          json = {
+            astrologer: astrologer,
+            sign: sign,
+            prediction: " "+prediction+" ",
+            start_date: display_start_date,
+            end_date: display_end_date,
+  
+          }
+          res.setHeader('content-type', 'application/json;charset=UTF-8');
+          res.send(JSON.stringify(json, null, 4));
+          res.statusCode = 200;
+        }else{
+          json = {
+            sign: sign,
+            prediction: 'No messages from stars for ' + sign,
+            error_code: 404,
+            end_date: sign + ' not found ',
+  
+          }
+          res.send(JSON.stringify(json, null, 4));
+          res.statusCode = 404;
         }
-        res.setHeader('content-type', 'application/json;charset=UTF-8');
-        res.send(JSON.stringify(json, null, 4));
-        res.statusCode = 200;
-      } else {
-        json = {
-          sign: sign,
-          prediction: 'No messages from stars for ' + sign,
-          error_code: 404,
-          end_date: sign + ' not found ',
-
-        }
-        res.send(JSON.stringify(json, null, 4));
-        res.statusCode = 404;
+      }else{
+        //astrologer not found error
       }
     }
+    
+    
+   
 
 
 
 
   } else {
     var json = {
-      endpoint: 'wizoscopo API - endpoint API service',
+      endpoint: 'foxapi API - endpoint API service',
       version: 'v 1.0',
-      message: ' Welcome, to start using me just go to documentation link below and discover how to pass parameter in GET request.',
-      documentation: 'https://wizoscopo-api.vercel.app/doc'
+      message: ' Welcome, you are in endpoint . Probably you miss some parameters or you do not inserted one. Get started checking usage reference linked below.',
+      documentation: 'https://foxapi.vercel.app/doc'
 
     }
     JSON.stringify(json, null, 4);
@@ -113,4 +159,59 @@ export default async function handler(req, res) {
 
 }
 
-
+function getFoxUrl(sign){
+  var error = 0
+  var fox_url = "https://zon.it/oroscopo-di-oggi-paolo-fox-28-settembre-2021"
+  if(sign == 'ariete'){
+    error = 1;
+    fox_url = fox_url;
+  }
+  if(sign == 'toro'){
+    error = 1;
+    fox_url = fox_url+'/2/';
+  }
+  if(sign == 'gemelli'){
+    error = 1;
+    fox_url = fox_url+'/3/';
+  }
+  if(sign == 'cancro'){
+    error = 1;
+    fox_url = fox_url+'/4/';
+  }
+  if(sign == 'leone'){
+    error = 1;
+    fox_url = fox_url+'/5/';
+  }
+  if(sign == 'vergine'){
+    error = 1;
+    fox_url = fox_url+'/6/';
+  }
+  if(sign == 'bilancia'){
+    error = 1;
+    fox_url = fox_url+'/7/';
+  }
+  if(sign == 'scorpione'){
+    error = 1;
+    fox_url = fox_url+'/8/';
+  }
+  if(sign == 'sagittario'){
+    error = 1;
+    fox_url = fox_url+'/9/';
+  }
+  if(sign == 'capricorno'){
+    error = 1;
+    fox_url = fox_url+'/10/';
+  }
+  if(sign == 'acquario'){
+    error = 1;
+    fox_url = fox_url+'/11/';
+  }
+  if(sign == 'pesci'){
+    error = 1;
+    fox_url = fox_url+'/12/';
+  }
+  if(error == 0){
+    fox_url = fox_url+'/null/'
+  }
+  return fox_url;
+}

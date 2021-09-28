@@ -46,12 +46,21 @@
 }
 
 .title {
-  margin: 0;
+  
   font-family: 'Quicksand', sans-serif;
   font-size: 1.8rem;
 }
 
+.th{
+  color:#9850df;
+  text-align: left;
+  padding-right:15px;
+}
 
+.td{
+  color:#d8d5da;
+  padding-right:25px;
+}
 
 .title2{
   
@@ -71,8 +80,8 @@
   background: #fafafa;
   border-radius: 5px;
   color: #030e1a;
-  padding: 0.75rem;
-  font-size: 1.1rem;
+  padding: 3.5px;
+  font-size: 0.8rem;
   font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
     Bitstream Vera Sans Mono, Courier New, monospace;
 }
@@ -100,7 +109,7 @@
 
 .carddoc {
   margin: 1rem;
-  padding: 1.5rem;
+  padding: 1rem;
   text-align: left;
   color: inherit;
   font-size:0.9rem;
@@ -110,6 +119,7 @@
   border-radius: 10px;
   transition: color 0.15s ease, border-color 0.15s ease;
   width: 100%;
+  height: 75vh;
 }
 
 .card:hover,
@@ -195,14 +205,14 @@
     padding: 1.5rem;
     text-align: left;
     color: inherit;
-    font-size:7.5px;
+    font-size:10px;
     text-decoration: none;
     border: 1px solid #8000ff;
     background-color: #120421;
     border-radius: 10px;
     transition: color 0.15s ease, border-color 0.15s ease;
     width: 80%;
-    height: 60vh;
+    height: 67vh;
   }
 
 
@@ -211,9 +221,9 @@
     background: #fafafa;
     border-radius: 5px;
     color: #030e1a;
-    padding: 0.8rem;
+    padding: 0.3rem;
     margin-top: 4rem;
-    font-size: 0.9rem;
+    font-size:9px;
     font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
       Bitstream Vera Sans Mono, Courier New, monospace;
   }
