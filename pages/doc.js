@@ -14,7 +14,7 @@ function Doc() {
           <main className={styles.main}>
             
             <h2 className={styles.title}>
-                wizoscopo API &#10024;
+                wizapi - API for reading stars &#10024;
             </h2>
             
         
