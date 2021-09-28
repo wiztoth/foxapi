@@ -36,7 +36,7 @@ function Doc() {
                 <p>All messages are provided in 🇮🇹 language. </p>
                 <p> Weekly horoscope by Rob Breszny, from Thursday to Wednesday.</p> <br /> 
                 <h2>Example for Cancer sign: </h2>
-                <a className={styles.italic_link} href="https://wizoscopo-api.vercel.app/api/horoscope?sign=cancro">https://wizoscopo-api.vercel.app/api/horoscope?sign=cancro</a>
+                <a className={styles.italic_link} href="http://localhost:3000/api/horoscope">https://wizoscopo-api.vercel.app/api/horoscope?sign=cancro</a>
               </div>
               </div>
            

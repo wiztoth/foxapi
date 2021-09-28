@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "cheerio": "^1.0.0-rc.10",
+    "cors": "^2.8.5",
     "express-prettier": "^1.0.3",
     "moment": "^2.29.1",
     "next": "11.1.2",
