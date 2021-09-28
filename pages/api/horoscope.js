@@ -12,9 +12,11 @@ export default async function handler(req, res) {
   const url = 'https://www.internazionale.it/oroscopo/'+start_date+'/'+sign+'-'+first_day_week+'-'+end_date;
  
   const request = await fetch(url);
+  console.log(url);
   var body = await request.text();
   const $ = cheerio.load(body);
-  var result = $('title').text();
+  var result = $(".item_text").text();
+  console.log("risultato è"+result);
  
   
   res.send(result);
