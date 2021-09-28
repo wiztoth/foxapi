@@ -14,8 +14,8 @@ function Doc() {
           <main className={styles.main}>
             
                 <h1 className={styles.title}> wizapi    </h1>
-<br />
-          <h1 className={styles.title}>  Usage Reference 📝    </h1>
+
+          <h3 className={styles.title2}>  Usage Reference 📝    </h3>
             
         
     
@@ -23,20 +23,22 @@ function Doc() {
     
             <div className={styles.grid}>
               <div className={styles.carddoc}>
-                   <p className={styles.description}>
-              API endpoint : {' '}
-              <code className={styles.code}>/api/horoscope</code>
-            </p>
+              <h2>1. Go to endpoint: </h2>
+                  
+                  
+                   <br/><br/>
+                    Endpoint Path :  {' '}
+              <code className={styles.code}><a href="https://wizapi.vercel.app/api/horoscope">/api/horoscope</a></code>
             
-                <br /> 
-                <h2>Get message: </h2>
-                <p> add to endpoint path parameter:</p>
-                <code className={styles.code}>?sign=<italic className={styles.italic}>youritaliansign</italic></code>
+              <br/><br/>
+                <h2>2. Get messages from stars: </h2>
+                <p> Add to endpoint path parameter:</p>
+                <a href="https://wizapi.vercel.app/api/horoscope?sign=vergine"><code className={styles.code}>?sign=<italic className={styles.italic}>youritaliansign</italic></code></a>
                 <br />  <br />  
-                <p>All messages are provided in 🇮🇹 language. </p>
+                <p >All messages are provided in italian language. &#x1f1f9; </p>
                 <p> Weekly horoscope by Rob Breszny, from Thursday to Wednesday.</p> <br /> 
-                <h2>Example for Cancer sign: </h2>
-                <a className={styles.italic_link} href="https://wizapi.vercel.app/api/horoscope?sign=cancro">https://wizapi.vercel.app/api/horoscope?sign=cancro</a>
+                <h2>Example for Virgo sign: </h2>
+                <a className={styles.italic_link} href="https://wizapi.vercel.app/api/horoscope?sign=vergine">https://wizapi.vercel.app/api/horoscope?sign=vergine</a>
               </div>
               </div>
            
