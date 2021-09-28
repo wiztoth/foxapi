@@ -32,7 +32,7 @@ function Doc() {
             
               <br/><br/>
                 <h2>2. Get messages from stars: </h2>
-                <p> Add to endpoint path parameter:</p>
+                <p> Add to endpoint path parameter:</p><br/>
                 <a href="https://wizapi.vercel.app/api/horoscope?sign=vergine"><code className={styles.code}>?sign=<italic className={styles.italic}>youritaliansign</italic></code></a>
                 <br />  <br />  
                 <p >All messages are provided in italian language. &#x1f1f9; </p>
