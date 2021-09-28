@@ -1,10 +1,8 @@
 const cheerio = require('cheerio');
 const moment = require('moment');
-import 'moment/min/moment-with-locales'
-moment.locale('it');
-var start_date = moment().day(-3).format('YYYY/MM/DD');
-var first_day_week = moment().day(-3).format('DD');
-var end_date = moment().day(+3).format('DD-MMMM-YYYY').locale('it');
+var start_date = moment().day(-3).local('it').format('YYYY/MM/DD');
+var first_day_week = moment().day(-3).local('it').format('DD');
+var end_date = moment().day(+3).lang('it').local('DD-MMMM-YYYY');
 
 export default async function handler(req, res) {
 
@@ -55,7 +53,7 @@ export default async function handler(req, res) {
     }
     JSON.stringify(json,null,4);
     res.send( JSON.stringify(json,null,4));
-    res.statusCode = 200;
+    
   }
  
  

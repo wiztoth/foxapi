@@ -5,6 +5,10 @@ module.exports = {
   api: {
     externalResolver: true,
   },
+  locales: ['it-IT'],
+  // This is the default locale you want to be used when visiting
+  // a non-locale prefixed path e.g. `/hello`
+  defaultLocale: 'it-IT',
 
   async headers() {
     return [
