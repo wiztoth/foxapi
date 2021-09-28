@@ -24,7 +24,7 @@ function Doc() {
 <h3 className={styles.title2}>     </h3>
   
               <div className={styles.carddoc}>
-              <h2>1. Go to endpoint: </h2>
+              <h2> Go to endpoint: </h2>
                   
                   
                 
@@ -32,7 +32,7 @@ function Doc() {
               <code className={styles.code}><a href="https://foxapi.vercel.app/api/horoscope">/api/horoscope</a></code>
             
           
-                <h2>2. Get messages from stars: </h2>
+                <h2>Get messages from stars: </h2>
                 <p> Add to endpoint path parameters:</p>
                
              
@@ -70,7 +70,7 @@ function Doc() {
               </div>
               </div>
            
-              <br />  <br />
+  
              
     
               <a

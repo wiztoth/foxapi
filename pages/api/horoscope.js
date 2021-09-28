@@ -96,13 +96,11 @@ export default async function handler(req, res) {
     }else{
       if( astrologer == 'fox'){
         const url = getFoxUrl(sign);
-        console.log(url);
         const request = await fetch(url);
         
         var body = await request.text();
         const $ = cheerio.load(body,{ decodeEntities: true });
         var title = $("title").text();
-        console.log(title);
 
         var prediction = $("p").text();
         if( title != 'Pagina non trovata - ZON'){
@@ -110,8 +108,8 @@ export default async function handler(req, res) {
             astrologer: astrologer,
             sign: sign,
             prediction: " "+prediction+" ",
-            start_date: display_start_date,
-            end_date: display_end_date,
+            today: moment().locale('it').format('DD MMMM YYYY'),
+            
   
           }
           res.setHeader('content-type', 'application/json;charset=UTF-8');
