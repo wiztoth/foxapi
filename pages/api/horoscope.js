@@ -14,11 +14,10 @@ export default async function handler(req, res) {
   const request = await fetch(url);
   var body = await request.text();
   const $ = cheerio.load(body);
-  var result = $('h2.hentry__title').text();
-  var prediction = $('div.item_text > p ').text();
-
+  var result = $('title').text();
+ 
   
-  res.send(prediction);
+  res.send(result);
 
     
  
