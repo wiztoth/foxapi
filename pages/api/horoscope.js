@@ -4,7 +4,7 @@ import 'moment/min/moment-with-locales'
 moment.locale('it');
 var start_date = moment().day(-3).format('YYYY/MM/DD');
 var first_day_week = moment().day(-3).format('DD');
-var end_date = moment().day(+3).format('DD-MMMM-YYYY');
+var end_date = moment().day(+3).format('DD-MMMM-YYYY').locale('it');
 
 export default async function handler(req, res) {
 
