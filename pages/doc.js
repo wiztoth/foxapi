@@ -31,7 +31,7 @@ function Doc() {
                     Endpoint Path :  {' '}
               <code className={styles.code}><a href="https://foxapi.vercel.app/api/horoscope">/api/horoscope</a></code>
             
-          
+          <br/><br/>
                 <h2>Get messages from stars: </h2>
                 <p> Add to endpoint path parameters:</p>
                
@@ -60,13 +60,14 @@ function Doc() {
                 </tbody>
 
                 
-                  </table>
-                <br /> 
+                  </table><br/>
+                  <h4>Example for Virgo sign by Paolo Fox: </h4>
+                <a className={styles.italic_link} href="https://foxapi.vercel.app/api/horoscope?sign=vergine&astrologer=fox">https://foxapi.vercel.app/api/horoscope?sign=vergine&astrologer=fox</a>
+                <br /> <br/><br/>
                 <p >All messages are provided in italian language. 🇮🇹 </p>
                 <p> Daily horoscope by Paolo Fox. </p> 
-                <p> Weekly horoscope by Rob Breszny, from Thursday to Wednesday.</p> <br/>
-                <h2>Example for Virgo sign by Paolo Fox: </h2>
-                <a className={styles.italic_link} href="https://foxapi.vercel.app/api/horoscope?sign=vergine&astrologer=fox">https://foxapi.vercel.app/api/horoscope?sign=vergine&astrologer=fox</a>
+                <p> Weekly horoscope by Rob Breszny, from Thursday to Wednesday.</p> 
+               
               </div>
               </div>
            
