@@ -15,7 +15,7 @@ export default async function handler(req, res) {
   console.log(url);
   var body = await request.text();
   const $ = cheerio.load(body);
-  var result = $(".item_text").text();
+  var result = $("p").text();
   console.log("risultato è"+result);
  
   
