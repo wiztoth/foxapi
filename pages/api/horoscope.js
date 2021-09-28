@@ -25,9 +25,8 @@ export default async function handler(req, res) {
       end_date: end_date
     }
    
-    res.send(JSON.stringify(json, null, 4));
-    res.statusCode = 200;
-    res.end();
+    res.send(json);
+    
   }else{
     var error = {
       sign : sign,
@@ -35,9 +34,8 @@ export default async function handler(req, res) {
       error_code: '404',
       error_description: sign+' not found'
     }
-    res.send(JSON.stringify(error, null, 4));
-    res.statusCode = 404;
-    res.end();
+    res.send(error);
+   
   }
   }else{
     res.send(' Welcome to endpoint, add parameter to start as described in documentation');
