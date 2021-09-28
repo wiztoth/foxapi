@@ -14,7 +14,7 @@ export default function Home() {
       <main className={styles.main}>
         
         <h1 className={styles.title}>
-          wizAPI &#10024;
+          wiz API &#10024;
         </h1>
 
        
