@@ -1,3 +1,5 @@
+import 'moment/locale/it';
+
 const cheerio = require('cheerio');
 const moment = require('moment');
 var start_date = moment().day(-3).locale('it').format('YYYY/MM/DD');
