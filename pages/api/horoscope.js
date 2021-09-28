@@ -9,7 +9,7 @@ export default async function handler(req, res) {
   const $ = cheerio.load(body);
   var title = $('title').text();
   console.log(title);
-  res.send('ciao');
+  res.send(title);
 }
 
 
