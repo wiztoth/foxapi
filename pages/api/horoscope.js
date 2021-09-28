@@ -1,44 +1,49 @@
+// modules needed on request to respond correctly
 import 'moment/locale/it';
-
 const cheerio = require('cheerio');
 const moment = require('moment');
+//--- variables needed to calculate dynamically url
 var start_date = moment().day(-3).locale('it').format('YYYY/MM/DD');
 var start_month = moment().day(-3).locale('it').format('MMMM');
 var end_month = moment().day(+3).locale('it').format('MMMM');
 var first_day_week = moment().day(-3).locale('it').format('DD');
 var end_date = moment().day(+3).locale('it').format('D-MMMM-YYYY');
-
+// --- just used to display on json object 
+var display_start_date = moment().day(-3).locale('it').format('DD MMMM YYYY');
+var display_end_date = moment().day(+3).locale('it').format('DD MMMM YYYY');
 
 
 export default async function handler(req, res) {
-  var month_variation = '';
   var sign = req.query.sign;
-  var json = {
-
-  }
+  var json = {};
   if (sign != null) {
+    // check if month it's the same, if not url to get messages change a little bit and month_variation it's needed.
     if (start_month == end_month) {
-      console.log('uguale');
+     
       const url = 'https://www.internazionale.it/oroscopo/' + start_date + '/' + sign + '-' + first_day_week + '-' + end_date;
 
       const request = await fetch(url);
-      console.log(url);
+     
       var body = await request.text();
-      const $ = cheerio.load(body);
-      var title = $("title").text();
-      var prediction = $("div.item_text > p").text();
+      const $ = cheerio.load(body,{ decodeEntities: true });
+      var title = $("h2.hentry__title").text();
+     
+      var prediction = $("div.item_text > p").html();
       if (title != 'Pagina non trovata') {
         json = {
           sign: sign,
-          prediction: prediction,
-          start_date: start_date,
-          end_date: end_date,
+          prediction: " "+prediction+" ",
+          start_date: display_start_date,
+          end_date: display_end_date,
 
         }
-
+        res.setHeader('content-type', 'application/json;charset=UTF-8');
         res.send(JSON.stringify(json, null, 4));
         res.statusCode = 200;
       } else {
+        if( sign == ''){
+          sign = 'null';
+        }
         json = {
           sign: sign,
           prediction: 'No messages from stars for ' + sign,
@@ -50,25 +55,26 @@ export default async function handler(req, res) {
         res.statusCode = 404;
       }
     } else {
-      console.log('diverso');
-      month_variation = end_month;
+      var month_variation = end_month;
       const url = 'https://www.internazionale.it/oroscopo/' + start_date + '/' + sign + '-' + first_day_week + '-' + month_variation + '-' + end_date;
 
       const request = await fetch(url);
-      console.log(url);
+      
       var body = await request.text();
-      const $ = cheerio.load(body);
+      const $ = cheerio.load(body,{ decodeEntities: true });
       var title = $("title").text();
+      
       var prediction = $("div.item_text > p").text();
+     
       if (title != 'Pagina non trovata') {
         json = {
           sign: sign,
-          prediction: prediction,
-          start_date: start_date,
-          end_date: end_date,
+          prediction: " "+prediction+" ",
+          start_date: display_start_date,
+          end_date: display_end_date,
 
         }
-
+        res.setHeader('content-type', 'application/json;charset=UTF-8');
         res.send(JSON.stringify(json, null, 4));
         res.statusCode = 200;
       } else {
