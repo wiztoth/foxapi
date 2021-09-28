@@ -17,31 +17,19 @@ export default async function handler(req, res) {
   var result = $('h2.hentry__title').text();
   var prediction = $('div.item_text > p ').text();
 
-  if(result != 'Pagina non trovata'){
-    var json = {
-      sign : sign,
-      message: prediction,
-      start_date: start_date,
-      end_date: end_date
-    }
-   
-    res.send(json);
+  var json = {
+    sign : sign,
+    message: prediction,
+    start_date: start_date,
+    end_date: end_date
+  }
+ 
+  res.send(json);
+}else{
+  res.send(' nessun segno immesso ');
+}
     
-  }else{
-    var error = {
-      sign : sign,
-      message: 'No messages from stars for '+sign,
-      error_code: '404',
-      error_description: sign+' not found'
-    }
-    res.send(error);
-   
-  }
-  }else{
-    res.send(' Welcome to endpoint, add parameter to start as described in documentation');
-  }
-  
-
+ 
   
 }
 
