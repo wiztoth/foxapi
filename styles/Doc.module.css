@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@300&family=PT+Mono&family=Roboto+Mono:wght@500&display=swap');
+.container {
+    min-height: 100vh;
+    padding: 0 0.5rem;
+    display: flex;
+    color: #f2f1f3;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: 'DM Mono', monospace;
+    background-color: #1c0739;
+    height: 100vh;
+  }
+  
+  .main {
+    padding: 0rem 0;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .code_bg{
+      color: rgb(226, 236, 240);
+      margin: 5px;
+      background-color:rgb(30, 5, 48) ;
+      padding: 10px;
+      border: 1px solid #8000ff;
+      font-family: 'Roboto Mono', monospace;
+      border-radius: 10px;
+  }
+
+  .code_bg a:hover{
+      color:rgb(162, 0, 255);
+  }
+  
+  .code_bg a{
+    color: rgb(226, 236, 240);
+  }
+
+  .title {
+  
+    font-family: 'Quicksand', sans-serif;
+    font-size: 1.8rem;
+    color: #8000ff;
+  }
+
+  .title a:hover{
+    color: #9328ff;
+  }
+  .titleh6 {
+  
+    font-family: 'Quicksand', sans-serif;
+   
+    color: rgb(255, 255, 255);
+  }
+  
+  .th{
+    color:rgb(149, 0, 255);
+    text-align: left;
+    padding-right:15px;
+    padding-bottom: 5px;
+    
+    font-family: 'Quicksand', sans-serif;
+    border-bottom: 1px solid indigo;
+  }
+  
+  .td{
+    padding-top: 15px;
+    color:rgb(255, 255, 255);
+    padding-right:25px;
+  }
+  
+  .tdesc{
+    padding-top: 15px;
+    font-family: 'Quicksand', sans-serif;
+  }
+
+  @media (max-width: 600px) {
+    .code_bg {
+       font-size: 15px;
+        background-color: transparent;
+        color:rgb(30, 5, 48);
+    }
+    .code_bg a{
+        font-size: 15px;
+         background-color: transparent;
+         color:rgb(30, 5, 48);
+     }
+     .code_bg a:hover{
+        font-size: 15px;
+         background-color: transparent;
+         color:rgb(30, 5, 48);
+     }
+
+    .container {
+       
+        padding: 0 2.5rem;
+       
+      }
+
+}
+
+  

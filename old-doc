@@ -1,0 +1,70 @@
+
+            <div className={styles.grid}>
+            <a href="https://foxapi.vercel.app"><h1 className={styles.title2}> FOXAPI  -  Usage Reference 📝   </h1><br/></a>
+
+<h3 className={styles.title2}>     </h3>
+  
+              <div className={styles.carddoc}>
+              <h2> Go to endpoint: </h2>
+                  
+                  
+                
+                    Endpoint Path :  {' '}
+              <code className={styles.code}><a href="https://foxapi.vercel.app/api/horoscope">/api/horoscope</a></code>
+            
+          <br/><br/>
+                <h2>Get messages from stars: </h2>
+                <p> Add to endpoint path parameters:</p>
+               
+             
+                <table>
+                <thead>
+                <tr>
+                    <th className={styles.th}>Parameters</th>
+                   
+                    <th className={styles.th}>Description</th>
+                </tr>
+                </thead>
+
+                <tbody>
+                <tr>
+                    <td className={styles.td}>sign</td>
+                   
+                    <td className={styles.td}>All sign in italian lang, for example: <i>Vergine</i> for virgo.</td>
+                </tr>
+
+                <tr>
+                    <td className={styles.td}>astrologer</td>
+                   
+                    <td className={styles.td}>Use last name of your favourite astrologer. <i>fox</i> or <i>brezsny</i> for example. </td>
+                </tr>
+                </tbody>
+
+                
+                  </table><br/>
+                  <h4>Example for Virgo sign by Paolo Fox: </h4>
+                <a className={styles.italic_link} href="https://foxapi.vercel.app/api/horoscope?sign=vergine&astrologer=fox">https://foxapi.vercel.app/api/horoscope?sign=vergine&astrologer=fox</a>
+                <br /> <br/><br/>
+                <p >All messages are provided in italian language. 🇮🇹 </p>
+                <p> Daily horoscope by Paolo Fox. </p> 
+                <p> Weekly horoscope by Rob Breszny, from Thursday to Wednesday.</p> 
+               
+              </div>
+              </div>
+           
+  
+             
+    
+              <a
+              href="https://github.com/wiztoth"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              
+              <span className={styles.logo}>
+                <Image src="/octocat.svg" alt="Github Logo" width={100} height={45} />
+              </span>
+            </a>
+            
+            
+          </main>
