@@ -77,29 +77,44 @@
     font-family: 'Quicksand', sans-serif;
   }
 
-  @media (max-width: 600px) {
-    .code_bg {
-       font-size: 15px;
-        background-color: transparent;
-        color:rgb(30, 5, 48);
+  @media (max-width: 400px) {
+    
+    .container{
+      padding-right: 0.2px;
+      font-size: 9px;
     }
+
     .code_bg a{
-        font-size: 15px;
-         background-color: transparent;
-         color:rgb(30, 5, 48);
-     }
-     .code_bg a:hover{
-        font-size: 15px;
-         background-color: transparent;
-         color:rgb(30, 5, 48);
-     }
+      font-size: 5px;
+    }
+      
+}
 
-    .container {
-       
-        padding: 0 2.5rem;
-       
-      }
 
+@media (min-width: 401px) and (max-width:600px) {
+    
+  .container{
+    padding-right: 0.2px;
+    font-size: 10px;
+  }
+
+  .code_bg a{
+    font-size: 8px;
+  }
+    
+}
+
+@media  (max-height:600px) {
+    
+  .container{
+    padding-right: 0.2px;
+    font-size: 10px;
+  }
+
+  .code_bg a{
+    font-size: 8px;
+  }
+    
 }
 
   

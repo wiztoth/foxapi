@@ -13,6 +13,7 @@ function Doc() {
       </Head>
 
       <main className={styles.main}>
+      
         <h1 className={styles.title}> <a href="https://foxapi.vercel.app">FOXAPI </a> </h1>
        
         <h4 className={styles.title}> Usage Reference 📝 </h4> <br /><br/>
@@ -64,7 +65,7 @@ function Doc() {
             <Image src="/octocat.svg" alt="Github Logo" width={100} height={45} />
           </span>
         </a>
-
+ 
       </main>
       
       
