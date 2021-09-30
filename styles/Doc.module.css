@@ -85,7 +85,7 @@
     }
 
     .code_bg a{
-      font-size: 5px;
+      font-size: 7.9px;
     }
       
 }
@@ -99,7 +99,7 @@
   }
 
   .code_bg a{
-    font-size: 8px;
+    font-size: 9px;
   }
     
 }
@@ -112,9 +112,38 @@
   }
 
   .code_bg a{
-    font-size: 8px;
+    font-size: 10px;
   }
     
 }
+
+
+@media  (max-width:350px) and (min-width:300px) {
+    
+  .container{
+    padding-right: 0.2px;
+    font-size: 10px;
+  }
+
+  .code_bg a{
+    font-size: 6.8px;
+  }
+    
+}
+
+
+@media  (max-width:290px) {
+    
+  .container{
+    padding-right: 0.2px;
+    font-size: 10px;
+  }
+
+  .code_bg a{
+    font-size: 5.8px;
+  }
+    
+}
+
 
   
