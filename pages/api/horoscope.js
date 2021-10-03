@@ -24,7 +24,7 @@ export default async function handler(req, res) {
       if (start_month == end_month) {
      
         const url = 'https://www.internazionale.it/oroscopo/' + start_date + '/' + sign + '-' + first_day_week + '-' + end_date;
-  
+        console.log(url);
         const request = await fetch(url);
        
         var body = await request.text();
@@ -60,9 +60,10 @@ export default async function handler(req, res) {
           res.statusCode = 404;
         }
       } else {
-        var month_variation = end_month;
+        var month_variation = start_month;
         const url = 'https://www.internazionale.it/oroscopo/' + start_date + '/' + sign + '-' + first_day_week + '-' + month_variation + '-' + end_date;
-  
+        console.log(url);
+
         const request = await fetch(url);
         
         var body = await request.text();
