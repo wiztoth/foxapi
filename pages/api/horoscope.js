@@ -11,12 +11,15 @@ var end_date = moment().day(+3).locale('it').format('D-MMMM-YYYY');
 // --- just used to display on json object 
 var display_start_date = moment().day(-3).locale('it').format('DD MMMM YYYY');
 var display_end_date = moment().day(+3).locale('it').format('DD MMMM YYYY');
+var today_date = moment().locale('it').format('DD-MMMM-YYYY');
+var today_date2 = moment().locale('it').format('DD-MMMM');
 
 
 export default async function handler(req, res) {
   var sign = req.query.sign;
   var astrologer = req.query.astrologer;
   var json = {};
+  console.log(sign+' - '+astrologer+' - '+today_date)
   if (sign != null & astrologer != null) {
     // check if month it's the same, if not url to get messages change a little bit and month_variation it's needed.
     
@@ -174,7 +177,8 @@ export default async function handler(req, res) {
 
 function getFoxUrl(sign){
   var error = 0
-  var fox_url = "https://zon.it/oroscopo-di-oggi-paolo-fox-28-settembre-2021"
+  var fox_url = "https://zon.it/oroscopo-di-paolo-fox-"+today_date
+  console.log(fox_url)
   if(sign == 'ariete'){
     error = 1;
     fox_url = fox_url;
@@ -226,5 +230,6 @@ function getFoxUrl(sign){
   if(error == 0){
     fox_url = fox_url+'/null/'
   }
+  console.log(fox_url)
   return fox_url;
 }
