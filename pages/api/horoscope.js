@@ -6,7 +6,7 @@ const moment = require('moment');
 var start_date = moment().day(-3).locale('it').format('YYYY/MM/DD');
 var start_month = moment().day(-3).locale('it').format('MMMM');
 var end_month = moment().day(+3).locale('it').format('MMMM');
-var first_day_week = moment().day(-3).locale('it').format('DD');
+var first_day_week = moment().day(-3).locale('it').format('D');
 var end_date = moment().day(+3).locale('it').format('D-MMMM-YYYY');
 // --- just used to display on json object 
 var display_start_date = moment().day(-3).locale('it').format('DD MMMM YYYY');
@@ -101,54 +101,7 @@ export default async function handler(req, res) {
           res.statusCode = 404;
         }
       }
-    }else{
-      if( astrologer == 'fox'){
-        const url = getFoxUrl(sign);
-        const request = await fetch(url);
-        
-        var body = await request.text();
-        const $ = cheerio.load(body,{ decodeEntities: true });
-        var title = $("title").text();
-
-        var prediction = $("p").text();
-        if( title != 'Pagina non trovata - ZON'){
-          json = {
-            astrologer: astrologer,
-            sign: sign,
-            prediction: " "+prediction+" ",
-            today: moment().locale('it').format('DD MMMM YYYY'),
-            horoscope: 'daily'
-            
-  
-          }
-          res.setHeader('content-type', 'application/json;charset=UTF-8');
-          res.send(JSON.stringify(json, null, 4));
-          res.statusCode = 200;
-        }else{
-          json = {
-            astrologer: astrologer,
-            sign: sign,
-            prediction: 'No messages from stars for ' + sign+ ' from '+astrologer,
-            error_code: 404,
-            end_date: sign + ' not found ',
-  
-          }
-          res.send(JSON.stringify(json, null, 4));
-          res.statusCode = 404;
-        }
-      }else{
-        var json = {
-        astrologer: astrologer,
-        sign: sign,
-        prediction: 'I am '+astrologer+' , not Paolo or Rob, i can not read stars',
-        error_code: 404,
-        end_date: astrologer + ' is not a valid astrologer, retry with fox or brezsny ',
-        }
-        res.send(JSON.stringify(json, null, 4));
-          res.statusCode = 404;
-      }
     }
-    
     
    
 
@@ -173,63 +126,4 @@ export default async function handler(req, res) {
 
 
 
-}
-
-function getFoxUrl(sign){
-  var error = 0
-  var fox_url = "https://zon.it/oroscopo-di-paolo-fox-"+today_date
-  console.log(fox_url)
-  if(sign == 'ariete'){
-    error = 1;
-    fox_url = fox_url;
-  }
-  if(sign == 'toro'){
-    error = 1;
-    fox_url = fox_url+'/2/';
-  }
-  if(sign == 'gemelli'){
-    error = 1;
-    fox_url = fox_url+'/3/';
-  }
-  if(sign == 'cancro'){
-    error = 1;
-    fox_url = fox_url+'/4/';
-  }
-  if(sign == 'leone'){
-    error = 1;
-    fox_url = fox_url+'/5/';
-  }
-  if(sign == 'vergine'){
-    error = 1;
-    fox_url = fox_url+'/6/';
-  }
-  if(sign == 'bilancia'){
-    error = 1;
-    fox_url = fox_url+'/7/';
-  }
-  if(sign == 'scorpione'){
-    error = 1;
-    fox_url = fox_url+'/8/';
-  }
-  if(sign == 'sagittario'){
-    error = 1;
-    fox_url = fox_url+'/9/';
-  }
-  if(sign == 'capricorno'){
-    error = 1;
-    fox_url = fox_url+'/10/';
-  }
-  if(sign == 'acquario'){
-    error = 1;
-    fox_url = fox_url+'/11/';
-  }
-  if(sign == 'pesci'){
-    error = 1;
-    fox_url = fox_url+'/12/';
-  }
-  if(error == 0){
-    fox_url = fox_url+'/null/'
-  }
-  console.log(fox_url)
-  return fox_url;
 }

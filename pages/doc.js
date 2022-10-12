@@ -45,14 +45,14 @@ function Doc() {
                 <tr>
                     <td className={styles.td}>astrologer</td>
                    
-                    <td className={styles.tdesc}>Use last name of your favourite astrologer. <i>fox</i> or <i>brezsny</i> for example. </td>
+                    <td className={styles.tdesc}>Here there's for now only <i>brezsny</i> option. Hope in future to implement also others one. </td>
                 </tr>
                 </tbody>
 
                 
                   </table><br/>
-                  <h6 className={styles.titleh6}>  Example using Paolo Fox for Virgo sign:  </h6> <br/>
-                  <code className={styles.code_bg}><a href="https://foxapi.vercel.app/api/horoscope?sign=vergine&astrologer=fox"> https://foxapi.vercel.app/api/horoscope?sign=vergine&astrologer=fox </a></code>
+                  <h6 className={styles.titleh6}>  Example using Horoscope for Virgo sign:  </h6> <br/>
+                  <code className={styles.code_bg}><a href="https://foxapi.vercel.app/api/horoscope?sign=vergine&astrologer=brezsny"> https://foxapi.vercel.app/api/horoscope?sign=vergine&astrologer=brezsny </a></code>
 
       </p>
 <br/><br/>      <a
