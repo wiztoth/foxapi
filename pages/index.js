@@ -22,7 +22,7 @@ export default function Home() {
         
 
           <a href="/doc" className={styles.card}>
-            <h2>Usage Reference 📝 &rarr;</h2>
+            <h2>Usage Doc 📝 &rarr;</h2>
             <p>Discover all options for getting your stars messages.</p>
           </a>
 
