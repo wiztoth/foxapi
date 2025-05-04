@@ -23,7 +23,7 @@ function Doc() {
         <h6 className={styles.titleh6}>  1. Go to Endpoint:  </h6> <br/><code className={styles.code_bg}> https://foxapi.vercel.app/api/horoscope </code>
         <br /><br/><br />
         <h6 className={styles.titleh6}>  2. Get messages from the stars:  </h6> 
-                <p> Add to endpoint query parameters | all messages provided in 🇮🇹 language </p>
+                <p> Add to endpoint query parameters | all messages provided in 🇬🇧 language </p>
                
              
                 <table>
@@ -39,20 +39,16 @@ function Doc() {
                 <tr>
                     <td className={styles.td}>sign</td>
                    
-                    <td className={styles.tdesc}>All sign in italian lang, for example: <i>Vergine</i> for virgo.</td>
+                    <td className={styles.tdesc}>All sign in english lang, for example: <i>Virgo</i> .</td>
                 </tr>
 
-                <tr>
-                    <td className={styles.td}>astrologer</td>
-                   
-                    <td className={styles.tdesc}>Here there's for now only <i>brezsny</i> option. Hope in future to implement also others one. </td>
-                </tr>
+              
                 </tbody>
 
                 
                   </table><br/>
                   <h6 className={styles.titleh6}>  Example using Horoscope for Virgo sign:  </h6> <br/>
-                  <code className={styles.code_bg}><a href="https://foxapi.vercel.app/api/horoscope?sign=vergine&astrologer=brezsny"> https://foxapi.vercel.app/api/horoscope?sign=vergine&astrologer=brezsny </a></code>
+                  <code className={styles.code_bg}><a href="https://foxapi.vercel.app/api/horoscope?sign=virgo"> https://foxapi.vercel.app/api/horoscope?sign=virgo</a></code>
 
       </p>
 <br/><br/>      <a
