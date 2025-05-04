@@ -39,7 +39,7 @@ function Doc() {
                 <tr>
                     <td className={styles.td}>sign</td>
                    
-                    <td className={styles.tdesc}>All sign in english lang, for example: <i>Virgo</i> .</td>
+                    <td className={styles.tdesc}>One of the following sings : <i> Aries, Virgo, Cancerian, Libra, Aquarius, Capricorn,Scorpio, Pisces, Sagittarius, Taurus, Gemini, Leo</i>.</td>
                 </tr>
 
               
