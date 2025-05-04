@@ -17,12 +17,12 @@ export default function Home() {
 
 
        
-      <h1 className={styles.title}> FOXAPI    </h1>
+      <h1 className={styles.title}> 🧙🏻‍♂️ wizAPI </h1>
         <div className={styles.grid}>
         
 
           <a href="/doc" className={styles.card}>
-            <h2>Usage &rarr;</h2>
+            <h2>Usage Reference 📝 &rarr;</h2>
             <p>Discover all options for getting your stars messages.</p>
           </a>
 
@@ -32,7 +32,7 @@ export default function Home() {
 
          
         </div>
-        <h1 className={styles.title2}>  API for reading stars &#10024;    </h1>
+        <h1 className={styles.title2}>  API for reading stars  &#10024;    </h1>
 
       </main>
 

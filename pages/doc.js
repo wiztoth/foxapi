@@ -14,7 +14,7 @@ function Doc() {
 
       <main className={styles.main}>
       
-        <h1 className={styles.title}> <a href="https://wizapi.vercel.app"> 🧙🏻‍♂️ WizAPI </a> </h1>
+        <h1 className={styles.title}> <a href="https://wizapi.vercel.app"> 🧙🏻‍♂️ wizAPI </a> </h1>
        
         <h4 className={styles.title}> Usage Reference 📝 </h4> <br /><br/>
         
