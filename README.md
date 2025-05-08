@@ -1,5 +1,23 @@
 # 🐝🧙 WizAPI
 
+## About the Project
+
+WizAPI is a REST API base for generating horoscopes. The main logic is implemented in the `horoscope.js` file located under the `pages/api` folder. It uses a web scraper (powered by the `cheerio` library in Node.js) to fetch horoscope data from [Free Will Astrology](https://freewillastrology.com/clhoroscopes/). 
+
+The scraped data is transformed into JSON format and served via the API endpoint. For example, you can access the horoscope for a specific zodiac sign by visiting:
+
+```
+https://localhost:3000/api/horoscope?sign=zodiac_sign
+```
+
+Replace `zodiac_sign` with one of the valid signs (e.g., `aries`, `taurus`, `gemini`, etc.).
+
+There's also a small implemention about a documentation about usage at accessible through home link once development server was run.
+
+```
+https://localhost:3000/doc
+```
+
 ## Getting Started
 
 First, install the dependencies:
